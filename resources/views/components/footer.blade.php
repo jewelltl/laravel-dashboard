@@ -1,0 +1,1 @@
+<footer class="footer"> © 2017 {{Auth::user()->name}} by wrappixel.com </footer>
