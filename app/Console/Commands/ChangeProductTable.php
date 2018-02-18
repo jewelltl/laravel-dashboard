@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+use Pusher\Pusher;
 use App\Product;
 
 class ChangeProductTable extends Command
@@ -39,9 +40,28 @@ class ChangeProductTable extends Command
      */
     public function handle()
     {
-        $product = Product::where('price', '!=', 0)->first();
-        $product->price = rand(1000,9999);
-        $product->counts = rand(10000,99999);
-        $product->save();
+       if(count(Product::all()) == 0){
+            $product = new Product;
+            $product->name = 'Laravel Pusher Testing';
+            $product->description = 'This is a sample for laravel pusher testing';
+            $product->price = mt_rand(10000000, 99999999);
+            $product->save();
+        }else{
+            $product = Product::where('id', '!=', null)->first();
+            $product->price = mt_rand(10000000, 99999999);
+            $product->save();
+        }
+        
+        $options = array(
+            'cluster' => config('broadcasting.connections.pusher.options.cluster'),
+            'encrypted' => config('broadcasting.connections.pusher.options.encrypted')
+        );
+        $pusher = new Pusher(
+            config('broadcasting.connections.pusher.key'),
+            config('broadcasting.connections.pusher.secret'),
+            config('broadcasting.connections.pusher.app_id'),
+            $options
+        );
+        $pusher->trigger('client-dashboard', 'get-price', $product);
     }
 }

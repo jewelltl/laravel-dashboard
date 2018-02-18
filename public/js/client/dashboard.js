@@ -1,28 +1,39 @@
 $(document).ready(function(){
  	
 	// Pusher.logToConsole = true;
-	setInterval(function(){
-		var info = {
-    		_token: $('meta[name="csrf-token"]').attr('content')
-    	}
-		$.ajax({
-			type: "get",
-      		url: "/dashboard-update",
-		    data: info,
-			beforeSend: function (xhr) {
-	            var token = $('meta[name="csrf-token"]').attr('content');
-	            if (token) {
-	                  return xhr.setRequestHeader('X-CSRF-TOKEN', token);
-	            }
-	        }
-		})
-	},1000)
+	// setInterval(function(){
+	// 	var info = {
+ //    		_token: $('meta[name="csrf-token"]').attr('content')
+ //    	}
+	// 	$.ajax({
+	// 		type: "get",
+ //      		url: "/stats-update",
+	// 	    data: info,
+	// 		beforeSend: function (xhr) {
+	//             var token = $('meta[name="csrf-token"]').attr('content');
+	//             if (token) {
+	//                   return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+	//             }
+	//         }
+	// 	})
+	// },1000)
 
 	var pusher = new Pusher(app_key, {
 		cluster: cluster,
 		encrypted: true
 	})
 	var channel = pusher.subscribe('client-dashboard');
+
+	//pusher get channel for test
+	channel.bind('get-stats', function(response) {
+		changeStats(response)
+    });
+	//pusher get channel for real
+    channel.bind('get-stats' + id, function(response) {
+  		changeStats(response)
+    });
+
+
 
 	var container = $("#flot-line-chart-moving");
     // Determine how many data points to keep based on the placeholder's initial size;
@@ -38,6 +49,7 @@ $(document).ready(function(){
 			DrawChart(chart_data)  			
   		}
     });
+
 
     var DrawChart = function(chart_data){
     	var container = $("#flot-line-chart-moving");
@@ -117,6 +129,20 @@ $(document).ready(function(){
 	        plot.setData(series);
 	        plot.draw();
 	    }
+    }
+
+    var changeStats = function(stats){
+    	$("#balance").html(stats.balance)
+    	$("#available_credit").html(stats.available_credit)
+    	$("#current_due").html(stats.current_due)
+    	$("#past_due").html(stats.past_due)
+    	$("#terms").html(stats.terms)
+    	$("#asr").html(stats.asr)
+    	$("#requests_cancelled").html(stats.requests_cancelled)
+    	$("#billed_minutes").html(stats.billed_minutes)
+    	$("#total_calls").html(stats.total_calls)
+    	$("#connected_calls").html(stats.connected_calls)
+    	$("#short_calls").html(stats.short_calls)
     }
 
 })

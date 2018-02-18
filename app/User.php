@@ -32,7 +32,18 @@ class User extends Authenticatable
     public function Subscriptions(){
         return $this->hasMany('App\Subscription', 'user_id');
 
-    }public function Transactions(){
+    }
+
+    public function Transactions(){
         return $this->hasMany('App\Transaction', 'user_id');
     }
+
+    public function Stats(){
+        return $this->hasOne('App\Stats', 'user_id');
+    }
+
+    public function ChartData(){
+        return $this->hasMany('App\Chart', 'user_id');
+    }
+
 }

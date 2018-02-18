@@ -136,6 +136,7 @@
     <script type="text/javascript">
         var cluster = "{{ config('broadcasting.connections.pusher.options.cluster') }}"
         var app_key = "{{ config('broadcasting.connections.pusher.key')}}"
+        var id = "{{Auth::id()}}"
     </script>
 
         @yield('scripts')

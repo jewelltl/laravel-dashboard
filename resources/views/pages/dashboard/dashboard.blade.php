@@ -34,14 +34,13 @@
 <!-- Info box -->
 <!-- ============================================================== -->
 <div class="row">
-    <!-- Column -->
     <div class="col-lg-3 col-md-6">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0"><span id="price">0</span></h2>
-                        <h6 class="text-muted m-b-0">Laravel Pusher</h6>
+                        <h2 class="m-b-0">$ <span id="balance"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->balance}}</span></h2>
+                        <h6 class="text-muted m-b-0">Balance</h6>
                     </div>
                     <div class="align-self-center display-6 ml-auto"><i class="text-success icon-Target-Market"></i></div>
                 </div>
@@ -58,8 +57,8 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">$6,759</h2>
-                        <h6 class="text-muted m-b-0">This Week</h6>
+                        <h2 class="m-b-0">$ <span id="available_credit"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->available_credit}}</span></h2>
+                        <h6 class="text-muted m-b-0">Avaliable Credit</h6>
                     </div>
                     <div class="align-self-center display-6 ml-auto"><i class="text-info icon-Dollar-Sign"></i></div>
                 </div>
@@ -76,8 +75,8 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">2,356</h2>
-                        <h6 class="text-muted m-b-0">Emails Sent</h6>
+                        <h2 class="m-b-0">$ <span id="current_due"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->current_due}}</span></h2>
+                        <h6 class="text-muted m-b-0">Current Due</h6>
                     </div>
                     <div class="align-self-center display-6 ml-auto"><i class="text-primary icon-Inbox-Forward"></i></div>
                 </div>
@@ -94,8 +93,8 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">38</h2>
-                        <h6 class="text-muted m-b-0">Deals in Pipeline</h6>
+                        <h2 class="m-b-0">$ <span id="past_due"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->past_due}}</span></h2>
+                        <h6 class="text-muted m-b-0">Past Due</h6>
                     </div>
                     <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
                 </div>
@@ -108,64 +107,88 @@
     <!-- Column -->
     <!-- Column -->
 </div>
+    <!-- ============================================================== -->
+    <!-- End Info box -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Over Visitor, Our income , slaes different and  sales prediction -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Moving Line Chart Example</h4>
+                    <div class="flot-chart">
+                        {{-- <div class="flot-chart-content" id="flot-line-chart-moving"></div> --}}
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h5 class="card-title">Browser Stats</h5>
+                        <table class="table browser m-t-30 no-border">
+                            <tbody>
+                                <tr>
+                                    <td>Terms</td>
+                                    <td class="text-right">
+                                        <strong id="terms">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->terms}}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Average Seizure Raito</td>
+                                    <td class="text-right">
+                                        <strong id="asr">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->asr}}</strong> %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Requests Canclled</td>
+                                    <td class="text-right">
+                                        <strong id="requests_cancelled">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->requests_cancelled}}</strong> %
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Billed Minues</td>
+                                    <td class="text-right">
+                                        <strong id="billed_minutes">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->billed_minutes}}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Calls</td>
+                                    <td class="text-right">
+                                        <strong id="total_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->total_calls}}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Connected Calls</td>
+                                    <td class="text-right">
+                                        <strong id="connected_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->connected_calls}}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Short Calls</td>
+                                    <td class="text-right">
+                                        <strong id="short_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->short_calls}}</strong> %
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- ============================================================== -->
 <!-- End Info box -->
 <!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Over Visitor, Our income , slaes different and  sales prediction -->
-<!-- ============================================================== -->
-<div class="row">
-    <!-- Column -->
-    <div class="col-lg-6 col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Moving Line Chart Example</h4>
-                <div class="flot-chart">
-                    <div class="flot-chart-content" id="flot-line-chart-moving"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Column -->
-    <div class="col-lg-6 col-md-12">
-        <div class="card o-income">
-            <div class="card-body">
-                <div class="d-flex m-b-30 no-block">
-                    <h5 class="card-title m-b-0 align-self-center">Our Income</h5>
-                    <div class="ml-auto">
-                        <select class="custom-select b-0">
-                            <option selected="">January</option>
-                            <option value="1">February</option>
-                            <option value="2">March</option>
-                            <option value="3">April</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="income" style="height:260px; width:100%;"></div>
-                <ul class="list-inline m-t-30 text-center font-12">
-                    <li><i class="fa fa-circle text-success"></i> Growth</li>
-                    <li><i class="fa fa-circle text-info"></i> Net</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Column -->
-</div>
-<!-- ============================================================== -->
-<!-- Sales Chart and browser state-->
-<!-- ============================================================== -->
 
-<!-- ============================================================== -->
-<!-- End Sales Chart -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- End Page Content -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Right sidebar -->
-<!-- ============================================================== -->
-<!-- .right-sidebar -->
 
 @endsection
 
