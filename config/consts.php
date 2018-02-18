@@ -4,7 +4,7 @@ return [
 	'ADMIN' => [
 		'SIDEBAR' => [
 			'BREAKER' => ['TITLE' => '  --- PERSONAL'],
-			'DASHBOARD' => ['TITLE' => 'dashboard', 'LOCATION' => 'admin.dashboard', 'ICON' => 'icon-Car-Wheel'],
+			'DASHBOARD' => ['TITLE' => 'Dashboard', 'LOCATION' => 'admin.dashboard', 'ICON' => 'icon-Car-Wheel'],
 			'APPS' => ['TITLE' => 'Apps', 'LOCATION' => 'admin.dashboard', 'ICON' => 'icon-Double-Circle', 'CHILDREN' => [
 				'CALENDAR' => ['TITLE' => 'Calendar', 'LOCATION' => 'admin.dashboard'],
 				'CHAT_APP' => ['TITLE' => 'Chat app', 'LOCATION' => 'admin.dashboard'],
@@ -18,13 +18,13 @@ return [
 	'CLIENT' => [
 		'SIDEBAR' => [
 			'BREAKER' => ['TITLE' => 'PERSONAL'],
-			'DASHBOARD' => ['TITLE' => 'dashboard', 'LOCATION' => 'client.dashboard', 'ICON' => 'icon-Car-Wheel'],
-			'BALANCE' => ['TITLE' => 'balance', 'LOCATION' => '#', 'ICON' => 'icon-Money-2', 'CHILDREN' => [
+			'DASHBOARD' => ['TITLE' => 'Dashboard', 'LOCATION' => 'client.dashboard', 'ICON' => 'icon-Car-Wheel'],
+			'BALANCE' => ['TITLE' => 'Balance', 'LOCATION' => '#', 'ICON' => 'icon-Money-2', 'CHILDREN' => [
 				'ADD_METHOD' => ['TITLE' => 'Add Payment Method', 'LOCATION' => 'client.create_payment_method'],
 				'ADD_CREDIT' => ['TITLE' => 'Add Credit', 'LOCATION' => 'client.add_credit'],
 				'HISTORY' => ['TITLE' => 'Transaction History', 'LOCATION' => 'client.balence.history'],
 			]],
-			'CONFIGURATION' => ['TITLE' => 'configuration', 'LOCATION' => 'client.configuration', 'ICON' => 'icon-Gears-2'],
+			'CONFIGURATION' => ['TITLE' => 'Configuration', 'LOCATION' => 'client.configuration', 'ICON' => 'icon-Gears-2'],
 		],
 	],
 

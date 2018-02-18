@@ -1,22 +1,40 @@
 $(document).ready(function(){
  	
 	// Pusher.logToConsole = true;
-	// setInterval(function(){
-	// 	var info = {
- //    		_token: $('meta[name="csrf-token"]').attr('content')
- //    	}
-	// 	$.ajax({
-	// 		type: "get",
- //      		url: "/stats-update",
-	// 	    data: info,
-	// 		beforeSend: function (xhr) {
-	//             var token = $('meta[name="csrf-token"]').attr('content');
-	//             if (token) {
-	//                   return xhr.setRequestHeader('X-CSRF-TOKEN', token);
-	//             }
-	//         }
-	// 	})
-	// },1000)
+    //update stats for test (every 5s)
+	setInterval(function(){
+		var info = {
+    		_token: $('meta[name="csrf-token"]').attr('content')
+    	}
+		$.ajax({
+			type: "get",
+      		url: "/chart-update",
+		    data: info,
+			beforeSend: function (xhr) {
+	            var token = $('meta[name="csrf-token"]').attr('content');
+	            if (token) {
+	                  return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+	            }
+	        }
+		})
+	},5000)
+    update stats for test (every second)
+    setInterval(function(){
+        var info = {
+            _token: $('meta[name="csrf-token"]').attr('content')
+        }
+        $.ajax({
+            type: "get",
+            url: "/stats-update",
+            data: info,
+            beforeSend: function (xhr) {
+                var token = $('meta[name="csrf-token"]').attr('content');
+                if (token) {
+                      return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                }
+            }
+        })
+    },1000)
 
 	var pusher = new Pusher(app_key, {
 		cluster: cluster,
@@ -33,103 +51,13 @@ $(document).ready(function(){
   		changeStats(response)
     });
 
-
-
-	var container = $("#flot-line-chart-moving");
-    // Determine how many data points to keep based on the placeholder's initial size;
-    // this gives us a nice high-res plot while avoiding more than one point per pixel.
-    var maximum = container.outerWidth() / 2 || 300;
-    //
-    var data = [];
-
-    channel.bind('get-price', function(response) {
-  		$("#price").html(response.price)
-  		if (typeof response.price != "undefined"){
-			var chart_data = response.price/1000000
-			DrawChart(chart_data)  			
-  		}
+    //pusher get channel for real
+    channel.bind('get-chart' + id, function(response) {
+  		console.log(response)
     });
-
-
-    var DrawChart = function(chart_data){
-    	var container = $("#flot-line-chart-moving");
-	    // Determine how many data points to keep based on the placeholder's initial size;
-	    // this gives us a nice high-res plot while avoiding more than one point per pixel.
-	    var maximum = container.outerWidth() / 10 || 300;
-	    //
-	    function getRandomData() {
-	        if (data.length) {
-	            data = data.slice(1);
-	        }
-	        while (data.length < maximum) {
-	            var previous = data.length ? data[data.length - 1] : 0;
-	            var y = chart_data;
-	            data.push(y < 0 ? 0 : y > 100 ? 100 : y);
-	        }
-	        // zip the generated y values with the x values
-	        var res = [];
-	        for (var i = 0; i < data.length; ++i) {
-	            res.push([i, data[i]])
-	        }
-	        return res;
-	    }
-	    //
-	    series = [{
-	        data: getRandomData(),
-	        lines: {
-	            fill: true
-	        }
-	    }];
-	    //
-	    var plot = $.plot(container, series, {
-	        colors: ["#26c6da"],
-	        grid: {
-	            borderWidth: 0,
-	            minBorderMargin: 20,
-	            labelMargin: 10,
-	            backgroundColor: {
-	                colors: ["#fff", "#fff"]
-	            },
-	            margin: {
-	                top: 8,
-	                bottom: 20,
-	                left: 20
-	            },
-	            markings: function(axes) {
-	                var markings = [];
-	                var xaxis = axes.xaxis;
-	                for (var x = Math.floor(xaxis.min); x < xaxis.max; x += xaxis.tickSize * 1) {
-	                    markings.push({
-	                        xaxis: {
-	                            from: x,
-	                            to: x + xaxis.tickSize
-	                        },
-	                        color: "#fff"
-	                    });
-	                }
-	                return markings;
-	            }
-	        },
-	        xaxis: {
-	            tickFormatter: function() {
-	                return "";
-	            }
-	        },
-	        yaxis: {
-	            min: 0,
-	            max: 110
-	        },
-	        legend: {
-	            show: true
-	        }
-	    });
-	    // Update the random dataset at 25FPS for a smoothly-animating chart
-	    function updateRandom() {
-	        series[0].data = getRandomData();
-	        plot.setData(series);
-	        plot.draw();
-	    }
-    }
+     channel.bind('get-chart', function(response) {
+  		DrawChart(response)
+    });
 
     var changeStats = function(stats){
     	$("#balance").html(stats.balance)
@@ -144,22 +72,181 @@ $(document).ready(function(){
     	$("#connected_calls").html(stats.connected_calls)
     	$("#short_calls").html(stats.short_calls)
     }
+    
+    var DrawChart = function(chartData){
+        console.log(chartData)
+        var labels = chartData.map(obj =>{ 
+                var date = new Date(obj.created_at)
+                return date.getHours() + ":" + date.getMinutes();
+            })
+        var active = chartData.map(obj => obj.active)
+        var asr = chartData.map(obj => obj.asr)
+        var cps = chartData.map(obj => obj.cps)
+        var ports = chartData.map(obj => obj.ports)
+
+        var dom = document.getElementById("main");
+        var mytempChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+           
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['Active','ASR', 'CPS', 'Ports']
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            color: ["#55ce63", "#009efb", "#6772e5", "#ff5c6c"],
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+
+                    boundaryGap : false,
+                    data : labels
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    axisLabel : {
+                        formatter: '{value}'
+                    }
+                }
+            ],
+
+            series : [
+                {
+                    name:'Active',
+                    type:'line',
+                    color:['#000'],
+                    data: active,
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: 'Max'},
+                            {type : 'min', name: 'Min'}
+                        ]
+                    },
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                shadowColor : 'rgba(0,0,0,0.3)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 8,
+                                shadowOffsetY: 8 
+                            }
+                        }
+                    },        
+                    markLine : {
+                        data : [
+                            {type : 'average', name: 'Average'}
+                        ]
+                    }
+                },
+                {
+                    name:'ASR',
+                    type:'line',
+                    data: asr,
+                    markPoint : {
+                        data : [
+                            {name : 'Week minimum', value : -2, xAxis: 1, yAxis: -1.5}
+                        ]
+                    },
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                shadowColor : 'rgba(0,0,0,0.3)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 8,
+                                shadowOffsetY: 8 
+                            }
+                        }
+                    }, 
+                    markLine : {
+                        data : [
+                            {type : 'average', name : 'Average'}
+                        ]
+                    }
+                },
+                {
+                    name:'CPS',
+                    type:'line',
+                    data: cps,
+                    markPoint : {
+                        data : [
+                            {name : 'Week minimum', value : -2, xAxis: 1, yAxis: -1.5}
+                        ]
+                    },
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                shadowColor : 'rgba(0,0,0,0.3)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 8,
+                                shadowOffsetY: 8 
+                            }
+                        }
+                    }, 
+                    markLine : {
+                        data : [
+                            {type : 'average', name : 'Average'}
+                        ]
+                    }
+                },
+                {
+                    name:'Ports',
+                    type:'line',
+                    data: ports,
+                    markPoint : {
+                        data : [
+                            {name : 'Week minimum', value : -2, xAxis: 1, yAxis: -1.5}
+                        ]
+                    },
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                shadowColor : 'rgba(0,0,0,0.3)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 8,
+                                shadowOffsetY: 8 
+                            }
+                        }
+                    }, 
+                    markLine : {
+                        data : [
+                            {type : 'average', name : 'Average'}
+                        ]
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === "object") {
+            mytempChart.setOption(option, true), $(function() {
+                    function resize() {
+                        setTimeout(function() {
+                            mytempChart.resize()
+                        }, 100)
+                    }
+                    $(window).on("resize", resize), $(".sidebartoggler").on("click", resize)
+                });
+        }
+
+
+    }
+
+
+    DrawChart(chartData)
 
 })
 
-   
 
-
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: js
-*/
-
-
-$(function() {
-    
-});
-    
 

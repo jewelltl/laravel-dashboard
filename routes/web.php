@@ -35,8 +35,8 @@ Route::get('/cart/{id}/increaseByOne/', 'CartController@increaseByOne')->name('i
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/dashboard', 'HomeController@dashboard')->name('client.dashboard');
-    Route::get('/dashboard-update', 'HomeController@getUpdates'); //for test route
     Route::get('/stats-update', 'StatsController@getUpdates'); //for test route
+    Route::get('/chart-update', 'ChartController@getUpdate'); //for test route
 
     Route::get('/braintree/token', 'BraintreeTokenController@token');
     Route::get('/balance', 'BalanceController@create_method')->name('client.create_payment_method');

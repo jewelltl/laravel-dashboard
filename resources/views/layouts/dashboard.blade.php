@@ -121,7 +121,7 @@
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <script src="{{url(asset('plugins/toast-master/js/jquery.toast.js'))}}"></script>
-    <!-- Chart JS -->
+    
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
@@ -137,6 +137,7 @@
         var cluster = "{{ config('broadcasting.connections.pusher.options.cluster') }}"
         var app_key = "{{ config('broadcasting.connections.pusher.key')}}"
         var id = "{{Auth::id()}}"
+        var chartData =  {!! $chartdata !!}
     </script>
 
         @yield('scripts')

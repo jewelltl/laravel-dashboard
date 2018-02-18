@@ -19,7 +19,7 @@ class CreateChartsTable extends Migration
             $table->integer('cps');
             $table->integer('ports');
             $table->integer('active');
-            $table->integer('asr');
+            $table->float('asr');
             $table->timestamps();
         });
     }

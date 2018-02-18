@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('styles')
- <link href="{{url('css/admin/pages/float-chart.css')}}" rel="stylesheet">
+
 @endsection
 
 @section('title')
@@ -34,7 +34,7 @@
 <!-- Info box -->
 <!-- ============================================================== -->
 <div class="row">
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-2 col-md-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
@@ -45,14 +45,11 @@
                     <div class="align-self-center display-6 ml-auto"><i class="text-success icon-Target-Market"></i></div>
                 </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:3px;"> <span class="sr-only">50% Complete</span></div>
-            </div>
         </div>
     </div>
     <!-- Column -->
     <!-- Column -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-2 col-md-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
@@ -63,14 +60,12 @@
                     <div class="align-self-center display-6 ml-auto"><i class="text-info icon-Dollar-Sign"></i></div>
                 </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:3px;"> <span class="sr-only">50% Complete</span></div>
-            </div>
+            
         </div>
     </div>
     <!-- Column -->
     <!-- Column -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-2 col-md-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
@@ -81,14 +76,12 @@
                     <div class="align-self-center display-6 ml-auto"><i class="text-primary icon-Inbox-Forward"></i></div>
                 </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:3px;"> <span class="sr-only">50% Complete</span></div>
-            </div>
+            
         </div>
     </div>
     <!-- Column -->
     <!-- Column -->
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-2 col-md-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
@@ -99,12 +92,111 @@
                     <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
                 </div>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:3px;"> <span class="sr-only">50% Complete</span></div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <strong id="terms" class="m-b-0">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->terms}}</strong>
+                        <h6 class="text-muted m-b-0">Terms</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <h2 class="m-b-0"><span id="short_calls"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->short_calls}}</span> %</h2>
+                        <h6 class="text-muted m-b-0">Short Calls</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
+                </div>
             </div>
         </div>
     </div>
     <!-- Column -->
+    <!-- Column -->
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <h2 class="m-b-0"><span id="asr"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->asr}}</span> % </h2>
+                        <h6 class="text-muted m-b-0">Average Seizure Raito</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-success icon-Target-Market"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-3 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <h2 class="m-b-0"><span id="requests_cancelled"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->requests_cancelled}}</span> %</h2>
+                        <h6 class="text-muted m-b-0">Requests Canclled</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-info icon-Dollar-Sign"></i></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-2 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <h2 class="m-b-0">$ <span id="billed_minutes"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->billed_minutes}}</span></h2>
+                        <h6 class="text-muted m-b-0">Billed Minues</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-primary icon-Inbox-Forward"></i></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-2 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <h2 class="m-b-0">$ <span id="total_calls"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->total_calls}}</span></h2>
+                        <h6 class="text-muted m-b-0">Total Calls</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex p-10 no-block">
+                    <div class="align-slef-center">
+                        <strong id="connected_calls" class="m-b-0">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->connected_calls}}</strong>
+                        <h6 class="text-muted m-b-0">Connected Calls</h6>
+                    </div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Column -->
 </div>
     <!-- ============================================================== -->
@@ -118,12 +210,8 @@
         <div class="col-lg-8 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Moving Line Chart Example</h4>
-                    <div class="flot-chart">
-                        {{-- <div class="flot-chart-content" id="flot-line-chart-moving"></div> --}}
-
-                        
-                    </div>
+                    <h4 class="card-title"> chart</h4>
+                    <div id="main" style="width:100%; height:400px;"></div>
                 </div>
             </div>
         </div>
@@ -136,45 +224,44 @@
                         <table class="table browser m-t-30 no-border">
                             <tbody>
                                 <tr>
-                                    <td>Terms</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="terms">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->terms}}</strong>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Average Seizure Raito</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="asr">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->asr}}</strong> %
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Requests Canclled</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="requests_cancelled">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->requests_cancelled}}</strong> %
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Billed Minues</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="billed_minutes">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->billed_minutes}}</strong>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Total Calls</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="total_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->total_calls}}</strong>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Connected Calls</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="connected_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->connected_calls}}</strong>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Short Calls</td>
+                                    <td></td>
                                     <td class="text-right">
-                                        <strong id="short_calls">{{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->short_calls}}</strong> %
                                     </td>
                                 </tr>
                             </tbody>
@@ -193,14 +280,7 @@
 @endsection
 
 @section('page_scripts')
-    
-    <script src="{{url(asset('plugins/flot/excanvas.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot/jquery.flot.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot/jquery.flot.pie.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot/jquery.flot.time.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot/jquery.flot.stack.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot/jquery.flot.crosshair.js'))}}"></script>
-    <script src="{{url(asset('plugins/flot.tooltip/js/jquery.flot.tooltip.min.js'))}}"></script>
+    <script src="{{url(asset('plugins/echarts/echarts-all.js'))}}"></script>
 @endsection
 @section('scripts')
     <script src="{{url(asset('js/client/dashboard.js'))}}"></script>

@@ -12,8 +12,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        '\App\Console\Commands\ChangeProductTable',
         '\App\Console\Commands\UpdateStats',
+        '\App\Console\Commands\UpdateChartData',
     ];
 
     /**
@@ -26,10 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('command:updateStats')
                 ->everyMinute();
-
-        $schedule->command('ChangeProductTable:changeproduct')
+        $schedule->command('command:updatechart')
                 ->everyMinute();
-        
     }
 
     /**
