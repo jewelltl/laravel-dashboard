@@ -15,17 +15,6 @@
 @section('content')
 
 
-<div class="row page-titles">
-    <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Balance</h3>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-            <li class="breadcrumb-item">Balance</li>
-            <li class="breadcrumb-item active">Add Credit</li>
-        </ol>
-    </div>
-    
-</div>
 <form method="post" action="{{url('balance/add_credit')}}">
     {{csrf_field()}}
 

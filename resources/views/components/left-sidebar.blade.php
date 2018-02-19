@@ -10,11 +10,11 @@
                         <li class="nav-small-cap"> {{$menu['TITLE']}}</li>
                     @else
                         <li class="@if($page_info['menu'] == $key)  active @endif">
-                            <a class="waves-effect waves-dark @if(isset($menu['CHILDREN'])) has-arrow  @endif" @if(isset($menu['CHILDREN'])) href="#" aria-expanded="false"  @else href="{{route($menu['LOCATION'])}}" @endif ><i class="{{$menu['ICON']}}"></i><span class="hide-menu">{{$menu['TITLE']}} </a>
+                            <a class="waves-effect waves-dark text-capitalize @if(isset($menu['CHILDREN'])) has-arrow  @endif" @if(isset($menu['CHILDREN'])) href="#" aria-expanded="false"  @else href="{{route($menu['LOCATION'])}}" @endif ><i class="{{$menu['ICON']}}"></i><span class="hide-menu">{{$menu['TITLE']}} </a>
                                 @if(isset($menu['CHILDREN']))
                                     <ul aria-expanded="false" class="collapse">
                                         @foreach($menu['CHILDREN'] as $subkey=>$submenu)
-                                            <li><a href="{{route($submenu['LOCATION'])}}">{{$submenu['TITLE']}}</a></li>
+                                            <li><a href="{{route($submenu['LOCATION'])}}" class="text-capitalize">{{$submenu['TITLE']}}</a></li>
                                         @endforeach
                                     </ul>
                                 @endif

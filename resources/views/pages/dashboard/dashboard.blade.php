@@ -12,21 +12,6 @@
 @section('content')
 
 
-<div class="row page-titles">
-    <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Dashboard 1</h3>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard 1</li>
-        </ol>
-    </div>
-    <div class="col-md-7 align-self-center text-right d-none d-md-block">
-        <button type="button" class="btn btn-info"><i class="fa fa-plus-circle"></i> Create New</button>
-    </div>
-    <div class="">
-        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-    </div>
-</div>
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
@@ -145,7 +130,7 @@
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
                         <h2 class="m-b-0"><span id="requests_cancelled"> {{Auth::user()->Stats == null ? '0' : Auth::user()->Stats->requests_cancelled}}</span> %</h2>
-                        <h6 class="text-muted m-b-0">Requests Canclled</h6>
+                        <h6 class="text-muted m-b-0">Requests Cancelled</h6>
                     </div>
                     <div class="align-self-center display-6 ml-auto"><i class="text-info icon-Dollar-Sign"></i></div>
                 </div>
@@ -210,7 +195,7 @@
         <div class="col-lg-8 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"> chart</h4>
+                    <h4 class="card-title"> Chart</h4>
                     <div id="main" style="width:100%; height:400px;"></div>
                 </div>
             </div>
@@ -281,6 +266,9 @@
 
 @section('page_scripts')
     <script src="{{url(asset('plugins/echarts/echarts-all.js'))}}"></script>
+    <script type="text/javascript">
+        var chartData =  {!! $chartdata !!}
+    </script>
 @endsection
 @section('scripts')
     <script src="{{url(asset('js/client/dashboard.js'))}}"></script>

@@ -18,7 +18,7 @@ $(document).ready(function(){
 	        }
 		})
 	},5000)
-    update stats for test (every second)
+    //update stats for test (every second)
     setInterval(function(){
         var info = {
             _token: $('meta[name="csrf-token"]').attr('content')
@@ -53,7 +53,7 @@ $(document).ready(function(){
 
     //pusher get channel for real
     channel.bind('get-chart' + id, function(response) {
-  		console.log(response)
+  		DrawChart(response)
     });
      channel.bind('get-chart', function(response) {
   		DrawChart(response)
@@ -74,7 +74,7 @@ $(document).ready(function(){
     }
     
     var DrawChart = function(chartData){
-        console.log(chartData)
+        
         var labels = chartData.map(obj =>{ 
                 var date = new Date(obj.created_at)
                 return date.getHours() + ":" + date.getMinutes();

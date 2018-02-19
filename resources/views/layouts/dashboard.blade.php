@@ -47,7 +47,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Wrap</p>
+            <p class="loader__label">Loading ...</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -80,8 +80,6 @@
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 @yield('content')
-                @include('components.right-sidebar')
-                
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
@@ -137,7 +135,7 @@
         var cluster = "{{ config('broadcasting.connections.pusher.options.cluster') }}"
         var app_key = "{{ config('broadcasting.connections.pusher.key')}}"
         var id = "{{Auth::id()}}"
-        var chartData =  {!! $chartdata !!}
+        
     </script>
 
         @yield('scripts')

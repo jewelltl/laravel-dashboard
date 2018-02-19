@@ -27,9 +27,9 @@ class StatsController extends Controller
             $stats->terms = "PostPaid";
             $stats->asr = mt_rand(0,100);
             $stats->requests_cancelled = mt_rand(0,100);
-            $stats->billed_minutes = mt_rand(10000,20000);
-            $stats->total_calls = mt_rand(5000,10000);
-            $stats->connected_calls = mt_rand(40000,80000);
+            $stats->billed_minutes = mt_rand(1000,2000);
+            $stats->total_calls = mt_rand(500,1000);
+            $stats->connected_calls = mt_rand(4000,8000);
             $stats->short_calls = mt_rand(0,100);
             $stats->save();
         }
