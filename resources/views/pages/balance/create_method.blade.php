@@ -34,40 +34,7 @@
                                 <th></th>
                             </thead>
                             <tbody>
-                                @foreach(Auth::user()->PaymentMethods as $index=>$method)
-                                    <tr>
-                                        <?php $customer = $method->Customer($method->customer_id) ;?>
-                                        @if(isset($customer->cardType))
-                                            <td>{{ $index + 1 }}</td>
-                                            <td>
-                                                {{$customer->billingAddress->firstName}} {{$customer->billingAddress->lastName}}
-                                            </td>
-                                            <td>
-                                                <img src="{{$customer->imageUrl}}"> &nbsp;{{$customer->maskedNumber}}
-                                            </td>
-                                            <td>
-                                                {{$customer->expirationMonth}}/{{$customer->expirationYear}}
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-danger pull-right"><i class="fa fa-close"></i></a>
-                                            </td>
-                                        @else
-                                            <td>{{ $index + 1 }}</td>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                                <img src="{{$customer->imageUrl}}">&nbsp;{{$customer->email}}
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-danger pull-right"><i class="fa fa-close"></i></a>
-                                            </td>
-                                        @endif
-                                    </tr>
-                                @endforeach        
+                                {{--  --}}    
                             </tbody>
                         </table>
                         

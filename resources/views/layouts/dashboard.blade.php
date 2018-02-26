@@ -10,10 +10,11 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="{{URL:: asset('images/icon/favicon.png') }}">
+    <link rel="shortcut icon" href="{{URL:: asset('img/favicon.ico') }}">
 
     <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/jqueryui/jquery-ui.min.css')}}">
     <link href="{{url(asset('plugins/bootstrap/css/bootstrap.min.css'))}}" rel="stylesheet">
     <link href="{{url('plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
     <!-- This page CSS -->
@@ -57,7 +58,6 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        @include('components.header')
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -107,6 +107,7 @@
     <!-- ============================================================== -->
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <script src="{{url(asset('plugins/jquery/jquery.min.js'))}}"></script>
+    <script src="{{url(asset('plugins/jqueryui/jquery-ui.min.js'))}}"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="{{url(asset('plugins/bootstrap/js/popper.min.js'))}}"></script>
     <script src="{{url(asset('plugins/bootstrap/js/bootstrap.min.js'))}}"></script>

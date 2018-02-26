@@ -1,134 +1,118 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Our Site') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Main CSS file -->
-    <link rel="stylesheet" href="{{URL:: asset('css/my/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{URL:: asset('css/my/css/owl.carousel.css') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('css/my/css/magnific-popup.css') }}" />
-    <link rel="stylesheet" href="{{URL:: asset('css/my/css/font-awesome.css') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('css/my/css/style.css') }}" />
-    <link rel="stylesheet" href="{{URL:: asset('css/my/css/responsive.css') }}" />
-
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{URL:: asset('images/icon/favicon.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{URL:: asset('images/icon/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{URL:: asset('images/icon/apple-touch-icon-72-precomposedsed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{URL:: asset('images/icon/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{URL:: asset('images/icon/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{URL:: asset('images/icon/apple-touch-icon-57-precomposed.png')}}">
-
-    <!--login-->
-    <link href="{{URL:: asset('css/my/css/login-register.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">   
-
-    <script src="{{URL:: asset('js/client/login-register.js') }}" type="text/javascript"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-     <!-- PRELOADER -->
-        <div id="st-preloader">
-            <div id="pre-status">
-                <div class="preload-placeholder"></div>
-            </div>
-        </div>
-        <!-- /PRELOADER -->
-
-
-        <!-- HEADER -->
-        <header id="header">
-            <nav class="navbar st-navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#st-navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        {{--<a class="logo" href="{{ URL::route('home') }}"><img src="{{URL:: asset('images/logo.png')}}" width=150px height=100px; alt=""></a>--}}
-                   {{----}}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Voyyp | Dial more.</title>
+        <meta name="description" content="Wholesale VoIP at the price you deserve.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon Icon -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet"> 
+		
+		<!-- all css here -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/meanmenu.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    	<!-- Header Area Start -->
+		<header class="header-area fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-sm-4 col-xs-6">
+                        <div class="logo">
+                            <a href="index.html"><img src="img/logo-big.png" alt="AirIP"></a>
+                        </div>
                     </div>
-
-                    <div class="collapse navbar-collapse" id="st-navbar-collapse" >
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#slider">Home</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#our-works">Works</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li><a href="#our-team">Team</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            {{--<li><a href="{{ URL::route('product') }}">Products</a></li>--}}
-                            <!--<li><a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>
-                            <li> <a class="btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Register</a></li>-->
-                            @guest
-                                @if(Request::is('account/sign-in'))
-                                    <li><em class="btn  big-login" >Sign In</em></li>
-                                @else
-                                 <li><a href="{{ URL::route('login') }}">Sign In</a></li>
-                                @endif
-
-                                @if(Request::is('account/sign-up'))
-                                 <li><em class="btn  big-register">Sign Up</em></li>
-                                @else
-                                    <li><a href="{{ URL::route('register') }}">Sign Up</a></li>
-                                @endif
-                            @else
-                                <li>
-                                    <a  href="{{ route('client.dashboard') }}">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Sign Out
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            @endguest
-                            
-
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container -->
-            </nav>
-        </header>
+                    <div class="col-md-8 hidden-sm hidden-xs">
+                        <div class="main-menu text-center">
+                            <nav>
+                                <ul>
+                                    <li class="active"><a href="/">Home</a></li>
+                                    <li><a href="features.html">Features</a></li>
+                                    <li><a href="pricing.html">VOIP Price</a></li>
+                                    <li><a href="support.html">Support</a></li>
+                                    <li><a href="service.html">Services</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                    @guest
+                                        @if(Request::is('account/sign-in'))
+                                            <li><em class="btn  big-login" >Sign In</em></li>
+                                        @else
+                                         <li><a href="{{ URL::route('login') }}">Sign In</a></li>
+                                        @endif
+                                    @else
+                                        <li>
+                                            <a  href="{{ route('client.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                Sign Out
+                                            </a>
         
-
-        @yield('content')
-    
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.min.js')}}"></script><!-- jQuery -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/bootstrap.min.js')}}"></script><!-- Bootstrap -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.parallax.js')}}"></script><!-- Parallax -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/smoothscroll.js')}}"></script><!-- Smooth Scroll -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/masonry.pkgd.min.js')}}"></script><!-- masonry -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.fitvids.js')}}"></script><!-- fitvids -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/owl.carousel.min.js')}}"></script><!-- Owl-Carousel -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.counterup.min.js')}}"></script><!-- CounterUp -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/waypoints.min.js')}}"></script><!-- CounterUp -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.isotope.min.js')}}"></script><!-- isotope -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/jquery.magnific-popup.min.js')}}"></script><!-- magnific-popup -->
-    <script type="text/javascript" src="{{URL:: asset('js/client/scripts.js')}}"></script>
-</body>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    @endguest
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-md-2 col-sm-4 hidden-xs">
+                        <button class="modal-view nav-btn" data-toggle="modal" data-target="#productModal"><i class="fa fa-bars"></i><span>Sign In / Sign Up</span></button> 
+                    </div>
+                    -->
+                    <div class="col-md-12">
+                       <div class="mobile-menu  hidden-lg hidden-md">
+                            <nav>
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="features.html">Features</a></li>
+                                    <li><a href="pricing.html">VOIP Price</a></li>
+                                    <li><a href="support.html">Support</a></li>
+                                    <li><a href="service.html">Services</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+		</header>
+		<!-- Header Area End -->
+		
+		@yield('content')
+        
+		<!-- All js here -->
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/ajax-mail.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/counterup.js"></script>
+        <script src="js/jquery.meanmenu.js"></script>
+        <script src="js/plugins.js"></script>
+        <!-- google map api -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_qDiT4MyM7IxaGPbQyLnMjVUsJck02N0"></script>
+        <script src="js/map.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>

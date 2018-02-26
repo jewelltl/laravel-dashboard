@@ -1,0 +1,22 @@
+{
+	"billingAgreementId": "B_FAKE_ID-3f5d",
+	"createdAt": {
+		"date": "2018-02-22 05:14:09.000000",
+		"timezone_type": 3,
+		"timezone": "UTC"
+	},
+	"customerId": "655921414",
+	"default": true,
+	"email": "bt_buyer_us@paypal.com",
+	"imageUrl": "https://assets.braintreegateway.com/payment_method_logo/paypal.png?environment=sandbox",
+	"subscriptions": [],
+	"token": "cbh763",
+	"updatedAt": {
+		"date": "2018-02-22 05:14:09.000000",
+		"timezone_type": 3,
+		"timezone": "UTC"
+	},
+	"isChannelInitiated": false,
+	"payerInfo": null,
+	"limitedUseOrderId": null
+}

@@ -26,7 +26,7 @@ class User extends Authenticatable
     ];
 
     public function PaymentMethods(){
-        return $this->hasMany('App\PaymentMethod', 'user_id');
+        return $this->hasMany('App\PaymentMethod', 'user_id')->orderBy('main', 'desc');
     }
 
     public function Subscriptions(){

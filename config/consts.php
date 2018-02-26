@@ -19,13 +19,14 @@ return [
 		'SIDEBAR' => [
 			'BREAKER' => ['TITLE' => 'PERSONAL'],
 			'DASHBOARD' => ['TITLE' => 'Dashboard', 'LOCATION' => 'client.dashboard', 'ICON' => 'icon-Car-Wheel'],
-			'BALANCE' => ['TITLE' => 'Balance', 'LOCATION' => '#', 'ICON' => 'icon-Money-2', 'CHILDREN' => [
+			'BALANCE' => ['TITLE' => 'Balance', 'LOCATION' => '#', 'DOM' => '' ,  'ICON' => 'icon-Money-2', 'CHILDREN' => [
 				'ADD_METHOD' => ['TITLE' => 'Add Payment Method', 'LOCATION' => 'client.create_payment_method'],
 				'ADD_CREDIT' => ['TITLE' => 'Add Credit', 'LOCATION' => 'client.add_credit'],
 				'HISTORY' => ['TITLE' => 'Transaction History', 'LOCATION' => 'client.balence.history'],
 			]],
 			'CONFIGURATION' => ['TITLE' => 'Configuration', 'LOCATION' => 'client.configuration', 'ICON' => 'icon-Gears-2'],
 		],
+		'HISTORY_PER_PAGE' => 5
 	],
 
 	'COUNTRIES' => [

@@ -156,16 +156,17 @@ $(function () {
         $(this).closest('.card').removeClass().slideUp('fast');
     });
 
-    var handleToaster = function(status, description){
-        $.toast({
-            heading: status,
-            text: description,
-            position: 'top-right',
-            loaderBg: '#f33c49',
-            icon: 'info',
-            hideAfter: 6000,
-            stack: 6
-        })
-    }
+    
 
 });
+var handleToaster = function(status, description){
+    $.toast({
+        heading: status,
+        text: description,
+        position: 'top-right',
+        loaderBg: '#f33c49',
+        icon: 'info',
+        hideAfter: 6000,
+        stack: 6
+    })
+}

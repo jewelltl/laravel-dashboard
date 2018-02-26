@@ -39,17 +39,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/chart-update', 'ChartController@getUpdate'); //for test route
 
     Route::get('/braintree/token', 'BraintreeTokenController@token');
-    Route::get('/balance', 'BalanceController@create_method')->name('client.create_payment_method');
 
-    Route::get('/balance/add_card', 'BalanceController@get_add_card')->name('client.add_card');
+    Route::get('/balance', 'BalanceController@index')->name('client.balance');
     Route::post('/balance/add_card', 'BalanceController@post_add_card');
-
-    Route::get('/balance/add_credit', 'BalanceController@get_add_credit')->name('client.add_credit');
+    Route::post('/balance/set_main', 'BalanceController@set_main');
     Route::post('/balance/add_credit', 'BalanceController@post_add_credit')->name('client.add_credit');
-    Route::get('/balance/invoice', 'BalanceController@get_invoice');
 
-    Route::get('/balance/history', 'BalanceController@history')->name('client.balence.history');
-    
     Route::get('/configurations', 'HomeController@dashboard')->name('client.configuration');
 
 });

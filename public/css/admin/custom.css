@@ -5,3 +5,134 @@
 .logo-text{
 	color: white;
 }
+.btn-secondary{
+  background-color: #ececec;
+}
+
+
+.padding-0{
+  padding: 0!important;
+}
+.sidebar-nav li:first a{
+  	margin-top: 4px;
+}
+.sidebar-nav li span.balance{
+    padding: 5px 15px;
+    margin-left: 5px;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 8px
+}
+.left-sidebar{
+	border-bottom: 3px solid #47ea22;	
+}
+.btn-success{
+    background: #1bca3d;
+    border: 1px solid #1bca3d;
+}
+
+.profile-tab li a.nav-link:hover, .customtab li a.nav-link:hover {
+    color: #1bca3d;
+}
+.profile-tab li a.nav-link.active, .customtab li a.nav-link.active {
+    border-bottom: 2px solid #1bca3d;
+    color: #1bca3d;
+}
+
+#add_credit_form {
+  width: 300px;
+  position: relative;
+  left: 50%;
+  margin-left: -150px;
+  background-color: #eee;
+  padding: 1em;
+  border-radius: 1em;
+  margin-top: 2em;
+}
+
+#card-number, #cvv, #expiration-month, #expiration-year{
+  position: relative;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 5px 5px;
+  margin-top: 10px;
+  background-color: white;
+}
+/* This is where the magic starts */
+
+.icon-type {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  width: 40px;
+  height: 28px;
+  background-image: url('https://gist.githubusercontent.com/cbetta/800a425505407de9342b/raw/5ea2b7f9a2d53193ee1fce7f55b89575074f3744/cards.png');
+  background-position: -1000px 0;
+  background-repeat: no-repeat;
+}
+
+.icon-type-discover {
+  background-position: 0 0px;
+}
+
+.icon-type-visa {
+  background-position: 0 -28px;
+}
+
+.icon-type-master-card {
+  background-position: 0 -56px;
+}
+
+.icon-type-maestro {
+  background-position: 0 -85px;
+}
+
+.icon-type-american-express {
+  background-position: 0 -114px;
+}
+
+.card.has-border{
+  border: solid 1px #bdbdbde2;
+  border-radius: 2px;
+}
+.draggable-sortable-placeholder {
+  border: 2px dashed #eee;
+  background-color: #aaa;
+}
+.main-payment{
+  background-color: #cfffc9;
+}
+.pagination li{
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #e2e2e2;
+  border-radius: 4px
+}
+.pagination > li > a, .pagination > li > span {
+    color: #1bca3d;
+    padding: 8px;
+    font-weight: 600;
+}
+.pagination > .active > span{
+  background-color: #1bca3d;
+  color: #fff;
+}
+.pagination li.active{
+  background-color: #1bca3d;
+}
+.pagination li:hover{
+  background-color: #88f59d;
+}
+.pagination li:hover a, .pagination > .active > span:hover,.pagination > .active:hover > span{
+  background-color: #88f59d; 
+}
+.pagination li.disabled{
+  background-color: #e9edf2;
+}
+.mini-sidebar .sidebar-nav #sidebarnav > li:first-child > a{
+  margin-top: 10px;
+}
+.mini-sidebar .sidebar-nav #sidebarnav > li:first-child:hover > a{
+  background-color: #272727;
+}

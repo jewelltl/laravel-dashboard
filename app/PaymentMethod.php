@@ -16,6 +16,6 @@ class PaymentMethod extends Model
     }
     
     public function Customer($id){
-    	return Braintree_Customer::find($id)->paymentMethods[0];
+    	return Braintree_Customer::find($id)->paymentMethods;
     }
 }
