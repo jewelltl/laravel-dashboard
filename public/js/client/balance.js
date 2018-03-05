@@ -47,7 +47,8 @@ $(document).ready(function(){
               },
               onPaymentMethodReceived: function (obj) {
                 $("#payment_method_nonce").val(obj.nonce)
-                console.log(obj)
+                $("#paypal_loading_btn").removeClass("d-none");
+                $("#add_paypal_form").submit();
               }
             });
             
@@ -100,10 +101,7 @@ $(document).ready(function(){
               },        
             success: function (response){
               if(response.status = 'success'){
-                handleToaster('success', 'success')
                 $("#main_method").val(main_method)
-                $(".sortable-portlet div.sortable").removeClass('main-payment');
-                $(".sortable-portlet div.sortable:first").addClass('main-payment');
               }
             }
         })

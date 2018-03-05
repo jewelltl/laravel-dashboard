@@ -1,4 +1,7 @@
 @extends('layouts.auth')
+@section('title')
+    Voyyp | Sign In
+@endsection
 
 @section('content')
     <div class="login-register" style="background-image:url(/images/bg/login-register.jpg);">
@@ -49,14 +52,7 @@
                             <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                            <div class="social">
-                                <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
-                                <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fa fa-google-plus"></i> </a>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
                             Don't have an account? <a href="{{url('register')}}" class="text-info m-l-5"><b>Sign Up</b></a>

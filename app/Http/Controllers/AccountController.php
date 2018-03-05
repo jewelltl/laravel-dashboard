@@ -77,7 +77,7 @@ class AccountController extends BaseController {
                         if ($user->password_temp != '') {
                             return Redirect::route('change-password')->with('warning', true);
                         }
-                        return Redirect::intended('/');
+                        return Redirect::intended('/dashboard');
                   //  }
 //                    if ($user->active == 2) {
 //                        Auth::login($user);

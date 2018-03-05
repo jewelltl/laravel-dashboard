@@ -16,8 +16,9 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('type')->default(1);
             $table->float('amount');
-            $table->integer('customer_id'); //payment method id braintree customer id
+            $table->integer('customer_id')->nullable(); //payment method id braintree customer id
             $table->timestamps();
         });
     }

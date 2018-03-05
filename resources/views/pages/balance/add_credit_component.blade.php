@@ -21,7 +21,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="{{old('amount')}}" name="amount">
+                                <input type="text" class="form-control text-right" placeholder="50" aria-label="Amount (to the nearest dollar)" value="{{old('amount') != null ? old('amount') : 50}}" name="amount">
                             </div>
                         </div>
                     </div>
@@ -35,11 +35,8 @@
     <div class="card card-body">
        <div class="row">
             <div class="col-xs-12 offset-sm-2 col-sm-8">
-                <div class="row form-group">
-                    <div class="col-6"><h2>Your Balance</h2></div>
-                    <div class="col-6"><h2><strong>${{$balance}}</strong></h2></div>
-                </div>
-                <a class="btn btn-block btn-secondary waves-effect waves-light m-r-10" href="#">View Usage Details</a>
+                <h2 class="text-center">Your Balance</h2>
+                <h2 class="text-center"><strong>${{$balance}}</strong></h2>
             </div>
         </div>
     </div>

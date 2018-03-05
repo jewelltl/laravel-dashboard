@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function dashboard(){
         $page_info['menu'] = 'DASHBOARD';
         $page_info['submenu'] = '';
-        $balance = Transaction::where('user_id', '=', Auth::id())->sum('amount');
+        $balance = Transaction::where('user_id', '=', Auth::id())->where('type', '=', 1)->sum('amount') - Transaction::where('user_id', '=', Auth::id())->where('type', '=', 2)->sum('amount');
         $chartdata = Chart::where('user_id', '=', Auth::id())->orderBy('created_at', 'asc')->take(30)->get();
         return view('pages.dashboard.dashboard')
             ->with('chartdata', $chartdata)

@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Our Site') }}</title>
+    <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{url(asset('plugins/bootstrap/css/bootstrap.min.css'))}}" rel="stylesheet">
     <!-- page css -->
@@ -36,7 +36,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Wrap</p>
+            <p class="loader__label">Loading ...</p>
         </div>
     </div>
     <!-- ============================================================== -->

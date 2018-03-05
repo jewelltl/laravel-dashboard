@@ -1,5 +1,9 @@
 @extends('layouts.auth')
 
+@section('title')
+    Voyyp | Sign Up
+@endsection
+
 @section('content')
 
 @if(Session::has('success'))

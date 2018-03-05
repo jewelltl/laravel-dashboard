@@ -12,20 +12,23 @@
 @section('content')
 
 
-
+@if(count(Auth::user()->PaymentMethods()) > 0)
+    <div class="row">
+        @include('pages.balance.add_credit_component')
+    </div>
+@endif
 <div class="row">
-    @include('pages.balance.add_credit_component')
-</div>
-<div class="row">
-    <div class="col-sm-12">
+    <div class="offset-md-1 col-md-10 col-sm-12">
         @include('pages.balance.add_card_component')
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        @include('pages.balance.billing_history_component')
+@if(count(Auth::user()->PaymentMethods()) > 0)
+    <div class="row">
+        <div class="offset-md-1 col-md-10 col-sm-12">
+            @include('pages.balance.billing_history_component')
+        </div>
     </div>
-</div>
+@endif
 
 
 

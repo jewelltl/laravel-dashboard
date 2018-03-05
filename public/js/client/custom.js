@@ -107,15 +107,15 @@ $(function () {
     });
     
     
-    $(window).scroll(function () {
-        if ($(window).scrollTop() >= 200) {
-            $('body').addClass('fix-sidebar');
-            $('.left-sidebar').addClass('animated slideInDown');
-        } else {
-            $('body').removeClass('fix-sidebar');
-            $('.left-sidebar').removeClass('animated slideInDown');
-        }
-    });
+    // $(window).scroll(function () {
+    //     if ($(window).scrollTop() >= 200) {
+    //         $('body').addClass('fix-sidebar');
+    //         $('.left-sidebar').addClass('animated slideInDown');
+    //     } else {
+    //         $('body').removeClass('fix-sidebar');
+    //         $('.left-sidebar').removeClass('animated slideInDown');
+    //     }
+    // });
     
     // ============================================================== 
     // Perfact scrollbar
@@ -156,17 +156,16 @@ $(function () {
         $(this).closest('.card').removeClass().slideUp('fast');
     });
 
-    
+    var handleToaster = function(status, description){
+        $.toast({
+            heading: status,
+            text: description,
+            position: 'top-right',
+            loaderBg: '#f33c49',
+            icon: 'info',
+            hideAfter: 6000,
+            stack: 6
+        })
+    }
 
 });
-var handleToaster = function(status, description){
-    $.toast({
-        heading: status,
-        text: description,
-        position: 'top-right',
-        loaderBg: '#f33c49',
-        icon: 'info',
-        hideAfter: 6000,
-        stack: 6
-    })
-}

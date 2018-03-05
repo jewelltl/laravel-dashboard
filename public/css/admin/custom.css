@@ -8,8 +8,16 @@
 .btn-secondary{
   background-color: #ececec;
 }
-
-
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.page-wrapper{
+  padding-top: 60px;
+}
 .padding-0{
   padding: 0!important;
 }
@@ -23,6 +31,12 @@
     color: #000;
     border-radius: 8px
 }
+.sidebar-nav > ul > li.active:hover > a {
+    color: #1bca3d;
+}
+.sidebar-nav > ul > li.active:hover > a i {
+    color: #1bca3d;
+}
 .left-sidebar{
 	border-bottom: 3px solid #47ea22;	
 }
@@ -30,7 +44,13 @@
     background: #1bca3d;
     border: 1px solid #1bca3d;
 }
-
+.dashboard-message{
+  padding-top: 30px;
+}
+.dashboard-message p{
+  line-height: 1.9rem;
+  font-size: 1.14rem;
+}
 .profile-tab li a.nav-link:hover, .customtab li a.nav-link:hover {
     color: #1bca3d;
 }
@@ -103,6 +123,10 @@
 .main-payment{
   background-color: #cfffc9;
 }
+.payment-method{
+  margin-bottom: 0px;
+  padding: 20px;
+}
 .pagination li{
   margin-left: 10px;
   padding: 10px;
@@ -135,4 +159,21 @@
 }
 .mini-sidebar .sidebar-nav #sidebarnav > li:first-child:hover > a{
   background-color: #272727;
+}
+#add_paypal_form{
+  display: inline-block;
+}
+.add_credit_btn{
+  vertical-align: top;
+  height: 45px;
+}
+#braintree-paypal-loggedin{
+  display: none!important;
+}
+.v-top.btn{
+  vertical-align: top;
+  height: 45px; 
+}
+.payment-method-list .payment-method:not(:last-child){
+  border-bottom: solid 2px #ababab;
 }

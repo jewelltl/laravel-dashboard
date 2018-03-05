@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="{{URL:: asset('img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{URL:: asset('img/favicon.png') }}">
 
     <title>@yield('title')</title>
     <!-- Bootstrap Core CSS -->
@@ -27,7 +27,7 @@
     @yield('styles')
 
     <!-- You can change the theme colors from here -->
-    <link href="{{url('css/admin/colors/blue-dark.css')}}" rel="stylesheet">
+    <link href="{{url('css/admin/colors/green-dark.css')}}" rel="stylesheet">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{url('css/admin/custom.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -146,7 +146,7 @@
         var status = '{!! Request::session()->get('status') !!}'
         var description = '{!! Request::session()->get('description') !!}'
         if(status != '' && description != '' ){
-            handleToaster(status, description)
+            // handleToaster(status, description)
         }
 
     </script>

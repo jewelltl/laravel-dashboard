@@ -19,7 +19,7 @@ class BalanceController extends Controller
     public function index(){
         
         $histories = Transaction::where('user_id', '=', Auth::id())->orderby('created_at','desc')->paginate(config('consts.CLIENT.HISTORY_PER_PAGE'));
-        $total = Transaction::where('user_id', '=', Auth::id())->sum('amount');
+        $total = Transaction::where('user_id', '=', Auth::id())->where('type', '=', 1)->sum('amount') - Transaction::where('user_id', '=', Auth::id())->where('type', '=', 2)->sum('amount');
         $page_info['menu'] = 'BALANCE';
         $page_info['submenu'] = 'ADD_METHOD';
         $main_method = PaymentMethod::where('user_id','=',Auth::id())->where('main', '=', 1)->get();
@@ -73,16 +73,31 @@ class BalanceController extends Controller
     		$method = new PaymentMethod;
     		$method->user_id = Auth::id();
     		$method->customer_id = $result->customer->id;
+            count(Auth::user()->PaymentMethods) == 0 ? $method->main = 1 : $method->main = 0 ;
     		$method->save();
             $request->session()->flash('status', 'success');
             $request->session()->flash('description', 'You have added new card/paypal successfully!');
-    		return redirect::to('/balance');
+            return redirect::to('/balance');
+            
 		} else {
             $request->session()->flash('status', 'warning');
             $request->session()->flash('description', 'You have failed in adding new card/paypal!');
-			return redirect::back()->withErrors($result->errors->deepAll());
+            return redirect::back()->withErrors($result->errors->deepAll());
 		}
 
+    }
+
+    public function remove_payment_method($id){
+        $method = PaymentMethod::find($id);
+        if($method){
+            PaymentMethod::destroy($id);
+        }
+        if(count(Auth::user()->PaymentMethods) == 1){
+            $main = Auth::user()->PaymentMethods->first();
+            $main->main = 1;
+            $main->save();
+        }
+        return redirect::back();
     }
   
     public function post_add_credit(Request $request){
@@ -121,7 +136,7 @@ class BalanceController extends Controller
             return redirect::back()->withErrors($result->errors->deepAll());
         }
     }
-
+        //ajax get
     public function set_main(Request $request){
         $methods = PaymentMethod::where('user_id', '=', Auth::id())->get();
         foreach ($methods as $method) {
@@ -135,5 +150,17 @@ class BalanceController extends Controller
             'status' => 'success',
         );
         return response()->json($response);
+    }
+    //http get
+    public function setmain($id){
+        $methods = PaymentMethod::where('user_id', '=', Auth::id())->get();
+        foreach ($methods as $method) {
+            $method->main = 0;
+            $method->save();
+        }
+        $method = PaymentMethod::find($id);
+        $method->main = 1;
+        $method->save();
+        return redirect::back();
     }
 }

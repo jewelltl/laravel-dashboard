@@ -3,28 +3,28 @@
 @section('content')
 
 		<!-- Banner Area Start -->
-		<div id="banner" class="banner-area bg-blue bg-1 fix">
-		    <div class="container-fluid">
-                <div class="banner-image-wrapper">
-                    <div class="banner-image">
-                        <div class="banner-image-cell">
-                            <img src="https://i.imgur.com/e9UqLlb.png" style="border-radius: 10px; max-width: 680px">
-                        </div>
-                    </div>
-                </div>  
-                <div class="banner-text">
-                    <div class="text-content-wrapper">
-                        <div class="text-content">
+		<div id="particles-js" style="height: 80%" class="bg-green">
+		<div id="banner" class="banner-area bg-1 fix particle-network-animation" style="z-index: 2">
+		    <div class="row">
+		    	<div class="col-md-offset-2 col-md-8">
+                    <div class="text-content-wrapper" style="margin: 0 auto; perspective: 970px">
+                        <div id="hero-cta" class="text-content text-center">
                             <h1 class="title1">Experience the new era of VoIP.</h1>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <h3 style="color: #fff; margin-bottom: 40px;">Ridiculously high performance and low cost VoIP termination.</h3>
                             <div class="banner-button">
-                                <a class="default-btn button" href="#">Try free</a>	                
-                                <a class="default-btn button" href="#">Get Service</a>	                
+                                <span style="
+								    font-size: 18px;
+								    text-transform: uppercase;
+								    color: #fff;
+								    font-weight: bold;
+								">CALL (833) DIAL-MORE<span style="margin: 0 10px; display: inline-block">OR</span></span>
+								<a class="default-btn button" href="#">Sign Up Now</a>	                
                             </div>
                         </div>
                     </div>
                 </div>
-		    </div>
+            </div>
+		</div>
 		</div>
 		<!-- Banner Area End -->
 		<!-- feature Area Start -->
@@ -40,8 +40,8 @@
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <span>Business</span>
-                                    <span>VOIP</span>
+                                    <span>$.006/min (6/6)</span>
+                                    <span>VOIP Termination</span>
                                 </div>
                             </div>
                             <div class="single-service-item">
@@ -51,8 +51,8 @@
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <span>Hosted</span>
-                                    <span>PBX</span>
+                                    <span>Elastic</span>
+                                    <span>SIP Trunks</span>
                                 </div>
                             </div>
                             <div class="single-service-item">
@@ -62,8 +62,8 @@
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <span>Traking</span>
-                                    <span>SIP</span>
+                                    <span>Built-in</span>
+                                    <span>Load Balancing</span>
                                 </div>
                             </div>
                             <div class="single-service-item">
@@ -73,8 +73,8 @@
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <span>Call</span>
-                                    <span>Center</span>
+                                    <span>99.999%</span>
+                                    <span>Up-time</span>
                                 </div>
                             </div>
                             <div class="single-service-item">
@@ -84,8 +84,8 @@
                                     </div>
                                 </div>
                                 <div class="service-text">
-                                    <span>Residential</span>
-                                    <span>VOIP</span>
+                                    <span>Modern</span>
+                                    <span>Dashboard</span>
                                 </div>
                             </div>
                         </div>
@@ -93,33 +93,33 @@
                 </div>
                 <div class="service-section">
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="col-md-11 col-sm-12 col-xs-12">
                             <div class="service-container">
-                                <h2>Why Chose Us</h2>
+                                <h2>Why Choose Us</h2>
                                 <div class="service-column">
                                     <div class="service-item">
-                                        <h3>VOIP Service</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>Premium Routes</h3>
+                                        <p>Our network is comprised of Tier 1 providers and premium routes to support high-capacity, short-duration, and dialer-driven VoIP traffic.</p>
                                     </div>
                                     <div class="service-item">
-                                        <h3>Free From Contracts</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>Free of Setup Fees, Contracts, and Caps</h3>
+                                        <p>We're confident you'll love our service, so we don't need to tie you down with paperwork. &amp; We don't believe in limits, so you're free to dial more.</p>
                                     </div>
                                     <div class="service-item">
-                                        <h3>Unlimited Calling</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>US-48 Termination at $0.006/minute (6/6)</h3>
+                                        <p>If you dial more than 5,000 minutes per day, we're happy to accommodate you at $0.006 per minute billed in 6-second increments. Yes, really.</p>
                                     </div>
                                     <div class="service-item">
-                                        <h3>Phone Service</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>Clean and Comprehensive Reporting</h3>
+                                        <p>We love being fully transparent, and one way we accomplish this is with an easy to read and near real-time dashboard.</p>
                                     </div>
                                     <div class="service-item">
-                                        <h3>Bulk SMS</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>Unlimited and Instant Ports</h3>
+                                        <p>Whether you need to make 10 calls at a time or 1,000 &mdash; our elastic SIP trunks have got you covered.  Dial as your business demands it.</p>
                                     </div>
                                     <div class="service-item">
-                                        <h3>Cheap Rate</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <h3>Carrier-grade Infastructure</h3>
+                                        <p>Our world-class team has created industry-leading diagnostic and automation processes on top of our fully-redundant architecture.</p>
                                     </div>
                                 </div>
                             </div>
@@ -129,27 +129,43 @@
 		    </div>
 		</div>
 		<!-- feature Area End -->
-
+		
+		<div id="form" style="
+			background: #e8e8e8;
+		    padding: 100px;
+		    margin: 100px 0 0;
+		    text-align: center;
+		    color: #fff;
+		    font-size: 50px;
+		">
+		    <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                   	<div class="pipedriveWebForms" data-pd-webforms="https://pipedrivewebforms.com/form/9982a74808b9cb02b8f502e987153ed72618332"><script src="https://webforms.pipedriveassets.com/webforms.min.js"></script></div>
+                   	</div>
+                </div>
+            </div>
+        </div>
 
         <!-- Testimonial Area Start -->
         <div class="testimonial-area ptb-100">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                        <h2>What They say</h2>
+                        <h2>5 out of 5 Experts Agree: You'll Love Voyyp</h2>
                         <div class="testimonial-wrapper">
                             <div class="single-testimonial">
-                                <h4><a href="#">Tarmo Jegorov</a></h4>
+                                <h4>Tarmo Jegorov</h4>
                                 <h5>CEO  Devitems</h5>
                                 <p><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span></p>
                             </div>
                             <div class="single-testimonial">
-                                <h4><a href="#">Tarmo Jegorov</a></h4>
+                                <h4>Tarmo Jegorov</h4>
                                 <h5>CEO  Devitems</h5>
                                 <p><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span></p>
                             </div>
                             <div class="single-testimonial">
-                                <h4><a href="#">Tarmo Jegorov</a></h4>
+                                <h4>Tarmo Jegorov</h4>
                                 <h5>CEO  Devitems</h5>
                                 <p><span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span></p>
                             </div>
@@ -160,100 +176,13 @@
         </div>
         <!-- Testimonial Area End -->
 
-
-        <div class="map-area">
-            <div class="contact-map">
-                <div id="hastech"></div>
-            </div>
-        </div>
-        <!-- Footer Widget Area Start -->
-        <div class="footer-widget-area bg-light pb-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-footer-widget">
-                            <div class="footer-title">
-                                <h1>01</h1>
-                                <h2>Contact</h2>
-                            </div>
-                            <div class="footer-content">
-                                <div class="contact-info">
-                                    <h4 class="c-content">Address :	</h4>
-                                    <span>77/sevent Streeth<br>USA. Zip 4500.</span>
-                                </div>
-                                <div class="contact-info">
-                                    <h4 class="c-content">Phone :	</h4>
-                                    <span>+88092 (1) 5184203<br>+00 (22) 225455565</span>
-                                </div>
-                                <div class="contact-info">
-                                    <h4 class="c-content">E-mail :	</h4>
-                                    <span>info@devitems.com<br>devitems@email.com</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-footer-widget">
-                            <div class="footer-title">
-                                <h1>02</h1>
-                                <h2>Information</h2>
-                            </div>
-                            <div class="footer-content">
-                                <ul class="footer-widget-list">
-                                    <li><a href="#">About VoIP</a></li>
-                                    <li><a href="#">About Our Service</a></li>
-                                    <li><a href="#">Out Bulk SMS Service</a></li>
-                                    <li><a href="#">Online Support</a></li>
-                                    <li><a href="#">Cloud Storage</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="single-footer-widget">
-                            <div class="footer-title">
-                                <h1>03</h1>
-                                <h2>Support</h2>
-                            </div>
-                            <div class="footer-content">
-                                <ul class="footer-widget-list">
-                                    <li><a href="#">About VoIP</a></li>
-                                    <li><a href="#">About Our Service</a></li>
-                                    <li><a href="#">Out Bulk SMS Service</a></li>
-                                    <li><a href="#">Online Support</a></li>
-                                    <li><a href="#">Cloud Storage</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 hidden-sm">
-                        <div class="single-footer-widget">
-                            <div class="footer-title">
-                                <h1>04</h1>
-                                <h2>Why Air.IP</h2>
-                            </div>
-                            <div class="footer-content">
-                                <ul class="footer-widget-list">
-                                    <li><a href="#">About VoIP</a></li>
-                                    <li><a href="#">About Our Service</a></li>
-                                    <li><a href="#">Out Bulk SMS Service</a></li>
-                                    <li><a href="#">Online Support</a></li>
-                                    <li><a href="#">Cloud Storage</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer Widget Area End -->
         <!-- Footer Area Start -->
         <div class="footer-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="footer-text">
-                            <span class="block">Copyright &copy; 2018 <a href="#" data-toggle="modal" data-target="#productModal">HasTech</a>. All rights reserved.</span>
+                            <span class="block">Copyright &copy; 2018 Voyyp, LLC. - All rights reserved.</span>
                         </div>
                     </div>
                 </div>

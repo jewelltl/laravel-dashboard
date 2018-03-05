@@ -13,6 +13,18 @@ class ChartController extends Controller
 
 	public function getUpdate(Request $request){
 	   
+       $users = User::all();
+
+        foreach ($users as $key => $user) {  
+            $chartdata = new Chart;
+            $chartdata->user_id = $user->id;
+            $chartdata->cps = mt_rand(0, 20);
+            $chartdata->ports = mt_rand(0, 250);
+            $chartdata->active = mt_rand(0, 150);
+            $chartdata->asr = mt_rand(0,100);
+            $chartdata->save();
+        }
+        
         if(Auth::check()){
            $chartdata = Chart::where('user_id', '=', Auth::id())->orderBy('created_at', 'asc')->take(30)->get();
         }else{
@@ -29,8 +41,10 @@ class ChartController extends Controller
             config('broadcasting.connections.pusher.app_id'),
             $options
         );
+       
+     
 
-        $pusher->trigger('client-dashboard', 'get-chart'. Auth::id(), $chartdata);
+        $pusher->trigger('client-dashboard', 'get-chart', $chartdata);
        
 	}
 	    

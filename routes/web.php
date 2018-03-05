@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/balance/add_card', 'BalanceController@post_add_card');
     Route::post('/balance/set_main', 'BalanceController@set_main');
     Route::post('/balance/add_credit', 'BalanceController@post_add_credit')->name('client.add_credit');
+    Route::get('/balance/paymentmethod/{id}/remove', 'BalanceController@remove_payment_method');
+    Route::get('/balance/paymentmethod/{id}/setmain', 'BalanceController@setmain');
 
     Route::get('/configurations', 'HomeController@dashboard')->name('client.configuration');
 

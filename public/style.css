@@ -47,6 +47,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    background: #151515;
 }
 .clear {
     clear: both
@@ -411,7 +412,10 @@ textarea {
     background: #F5F5F5
 }
 .bg-blue {
-    background-color: #0091EA
+    background-color: #1dca3d
+}
+.bg-green {
+    background-color: #1dca3d
 }
 .bg-1,
 .bg-2,
@@ -497,7 +501,7 @@ textarea {
 .main-menu ul li a {
     color: #ffffff;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     padding: 11px 0;
     position: relative;
 }
@@ -546,25 +550,17 @@ button.nav-btn span {
     padding: 6px 0;
     display: none
 }
-.header-area.sticky {
-    -webkit-animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
-    animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
-    background: rgba(0, 145, 234, 0.95) none repeat scroll 0 0;
+.header-area {
+    transition: .6s;
     left: 0;
-    padding: 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 99;
 }
-.sticky .main-menu > nav > ul > li {
-    padding: 6px 0;
-}
-.sticky .logo {
-    padding: 10px 0;
-}
-.sticky .logo img {
-    width: 100px;
+.header-area.sticky {
+    background: #1dca3deb none repeat scroll 0 0;
+    padding: 20px;
 }
 .sticky button.nav-btn {
     margin: 10px 0;
@@ -586,7 +582,7 @@ button.nav-btn span {
     top: 10px;
 }
 .mean-container .mean-nav ul li a {
-    color: #0091ea;
+    color: #1dca3d;
 }
 .mean-container .mean-nav ul li:hover a {
     color: #212121;
@@ -650,6 +646,11 @@ button.nav-btn span {
     -webkit-animation: 1s ease-in-out 1.5s normal both 1 running fadeInDown;
     animation: 1s ease-in-out 1.5s normal both 1 running fadeInDown;
 }
+.text-content h3 {
+    color: #ffffff;
+    -webkit-animation: 1s ease-in-out 1.5s normal both 1 running fadeInDown;
+    animation: 1s ease-in-out 1.5s normal both 1 running fadeInDown;
+}
 .text-content p {
     color: #fefefe;
     line-height: 23px;
@@ -661,18 +662,22 @@ button.nav-btn span {
 .banner-area .banner-button {
     height: auto;
 }
+.banner-button {
+    -webkit-animation: 1s ease-in-out 3s normal both 1 running fadeInUp;
+    animation: 1s ease-in-out 3s normal both 1 running fadeInUp;
+}
 .banner-button .button {
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
     color: #fefefe;
     display: inline-block;
     margin-right: 26px;
     padding: 12px 27px;
-    -webkit-animation: 1s ease-in-out 3s normal both 1 running fadeInUp;
-    animation: 1s ease-in-out 3s normal both 1 running fadeInUp;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 .banner-button .button:hover {
     background: #ffffff none repeat scroll 0 0;
-    color: #0091ea;
+    color: #1dca3d;
 }
 /*----------------------------------------*/
 /*  4.  Service Area
@@ -681,7 +686,7 @@ button.nav-btn span {
   margin-top: -70px;
 }
 .single-service-container {
-    background: #263238 none repeat scroll 0 0;
+    background: #3a3a3afa none repeat scroll 0 0;
     box-shadow: 0 0 20px 14px rgba(0, 0, 0, 0.2);
     margin-top: -97px;
     overflow: hidden;
@@ -755,7 +760,7 @@ button.nav-btn span {
     padding-top: 100px;
 }
 .service-item h3 {
-    color: #444444;
+    color: #d2d2d2;
     font-weight: 400;
     line-height: 19px;
     margin-bottom: 13px;
@@ -763,7 +768,7 @@ button.nav-btn span {
     transition: all 0.3s ease 0s;
 }
 .service-item > p {
-    color: #444444;
+    color: #d2d2d2;
     line-height: 23px;
 }
 .service-container {
@@ -778,10 +783,10 @@ button.nav-btn span {
     width: 50%;
 }
 .service-item:hover h3 {
-    color: #0091ea;
+    color: #1dca3d;
 }
 .service-container h2 {
-    color: #121212;
+    color: #fff;
     left: -43px;
     line-height: 37px;
     position: absolute;
@@ -790,13 +795,13 @@ button.nav-btn span {
     transform: rotate(-90deg);
 }
 .service-container h2:after {
-    background: #999999 none repeat scroll 0 0;
+    background: #ffffff none repeat scroll 0 0;
     bottom: 8px;
     content: "";
     height: 2px;
-    left: -160px;
+    left: -150px;
     position: absolute;
-    width: 140px;
+    width: 120px;
 }
 .service-item:nth-child(5),
 .service-item:nth-child(6),
@@ -893,7 +898,7 @@ button.nav-btn span {
     color: #999999;
 }
 .newsletter-form button {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     border: 0 none;
     border-radius: 3px;
     color: #ffffff;
@@ -991,10 +996,10 @@ button.nav-btn span {
     color: #f4f4f4;
 }
 .best-pack .table-title {
-    background: #0091ea url("img/bg/table-blue.png") no-repeat scroll center bottom / 100% auto;
+    background: #1dca3d url("img/bg/table-blue.png") no-repeat scroll center bottom / 100% auto;
 }
 .best-pack .table-content:after {
-    border-bottom: 2px solid #0091ea;
+    border-bottom: 2px solid #1dca3d;
     bottom: 0;
     content: "";
     height: 2px;
@@ -1003,11 +1008,11 @@ button.nav-btn span {
     width: 100%;
 }
 .best-pack .table-btn {
-    border-color: #0091ea;
-    color: #0091ea;
+    border-color: #1dca3d;
+    color: #1dca3d;
 }
 .best-pack .table-btn:hover {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     color: #f4f4f4;
 }
 /*----------------------------------------*/
@@ -1056,7 +1061,7 @@ button.nav-btn span {
     color: #777777;
 }
 .make-call-registration .submit-btn {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     border: 0 none;
     border-radius: 3px;
     color: #ffffff;
@@ -1079,8 +1084,8 @@ button.nav-btn span {
     margin: 0 13px;
 }
 .call-button .default-btn:hover {
-    background: #0091ea none repeat scroll 0 0;
-    border-color: #0091ea;
+    background: #1dca3d none repeat scroll 0 0;
+    border-color: #1dca3d;
     color: #ffffff;
 }
 /*----------------------------------------*/
@@ -1223,7 +1228,7 @@ button.nav-btn span {
 }
 .panel-body span.arrow:before {
     bottom: 20px;
-    content: "";
+    content: "ï„‚";
     left: 0;
     right: 0;
     top: auto;
@@ -1295,7 +1300,7 @@ button.nav-btn span {
     outline: 0
 }
 .single-feature:hover .feature-icon {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
 }
 .slick-dots li button {
     background: #999999 none repeat scroll 0 0;
@@ -1388,12 +1393,12 @@ button.nav-btn span {
     margin-top: 3px;
 }
 .button-link .default-btn:hover {
-    background: #0091ea none repeat scroll 0 0;
-    border-color: #0091ea;
+    background: #1dca3d none repeat scroll 0 0;
+    border-color: #1dca3d;
     color: #ffffff;
 }
 .button-link .service {
-    color: #0091ea;
+    color: #1dca3d;
     font-size: 16px;
     font-weight: 500;
     padding-left: 16px;
@@ -1406,7 +1411,7 @@ button.nav-btn span {
 /*----------------------------------------*/
 
 .testimonial-area h2 {
-    color: #444444;
+    color: #d2d2d2;
     line-height: 24px;
     margin-bottom: 50px;
 }
@@ -1414,31 +1419,23 @@ button.nav-btn span {
     padding: 0 96px;
 }
 .single-testimonial > h4 {
-    color: #444444;
+    color: #1dca3d;
     margin-bottom: 8px;
 }
 .single-testimonial > h4:hover a {
-    color: #0091ea
+    color: #d2d2d2
 }
 .single-testimonial > h5 {
-    color: #444444;
+    color: #d2d2d2;
     font-weight: 300;
     margin-bottom: 20px;
 }
 .single-testimonial > p {
-    color: #444444;
+    color: #d2d2d2;
     line-height: 23px;
     position: relative
 }
-.single-testimonial > p:after {
-    color: #f5f5f5;
-    content: "";
-    font-family: "FontAwesome";
-    font-size: 110px;
-    left: -30px;
-    position: absolute;
-    top: -6px;
-}
+
 .single-testimonial > p span {
     z-index: 2;
     position: relative
@@ -1481,7 +1478,7 @@ button.nav-btn span {
     margin-bottom: 13px;
 }
 .footer-widget-list a:hover {
-    color: #0091ea;
+    color: #1dca3d;
     padding-left: 5px;
 }
 .footer-widget-area .col-md-3:nth-child(2) .single-footer-widget,
@@ -1516,7 +1513,7 @@ button.nav-btn span {
 /*----------------------------------------*/
 
 .footer-area {
-    background: #263238 none repeat scroll 0 0;
+    background: #0a0a0a none repeat scroll 0 0;
     color: #ffffff;
     padding: 15px 0;
 }
@@ -1554,7 +1551,7 @@ button.nav-btn span {
 .header-tab-menu .nav-tabs li a {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 1px solid rgba(0, 0, 0, 0);
-    color: #0091EA;
+    color: #1dca3d;
     font-size: 20px;
     font-weight: 500;
     margin: 0;
@@ -1565,7 +1562,7 @@ button.nav-btn span {
     color: #444
 }
 .modal-dialog button.close {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     border-radius: 50%;
     color: #ffffff;
     cursor: pointer;
@@ -1649,25 +1646,25 @@ button.nav-btn span {
     width: 17px;
 }
 .login-toggle-btn .default-btn {
-    border-color: #0091ea;
+    border-color: #1dca3d;
 }
 .button-box .default-btn {
-    border-color: #0091ea;
-    color: #0091ea;
+    border-color: #1dca3d;
+    color: #1dca3d;
     font-size: 14px;
     margin-top: 10px;
     padding: 8px 36px;
     background: #f5f5f5
 }
 .button-box .default-btn:hover {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     color: #f5f5f5;
 }
 .login-toggle-btn {
     padding-top: 26px;
 }
 .login-toggle-btn > a {
-    color: #0091ea;
+    color: #1dca3d;
     float: right;
 }
 .login-toggle-btn > a:hover {
@@ -1678,7 +1675,7 @@ button.nav-btn span {
 /*----------------------------------------*/
 
 #scrollUp {
-    background: #0091ea none repeat scroll 0 0;
+    background: #1dca3d none repeat scroll 0 0;
     bottom: 40px;
     color: #ffffff;
     cursor: pointer;
@@ -1789,13 +1786,13 @@ h2.page-title {
 }
 .contact-from input:focus,
 .contact-from textarea:focus {
-    border-color: #0091ea;
+    border-color: #1dca3d;
     box-shadow: inherit;
     outline: 0 none;
 }
 .contact-from input.submit:hover {
-    background-color: #0091ea;
-    border: 1px solid #0091ea;
+    background-color: #1dca3d;
+    border: 1px solid #1dca3d;
     color: #fff;
 }
 .conatct-info {
@@ -1834,7 +1831,7 @@ h2.page-title {
     font-family: "Exo 2", sans-serif;
 }
 .contact-text > span a:hover {
-    color: #0091ea;
+    color: #1dca3d;
 }
 .contact-area .section-title > h2 {
     color: #121212;
@@ -1846,8 +1843,8 @@ h2.page-title {
     color: #fff;
 }
 .single-contact-info:hover .contact-icon {
-    background-color: #0091ea;
-    border: 1px solid #0091ea;
+    background-color: #1dca3d;
+    border: 1px solid #1dca3d;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
 }
 #hastech {
@@ -1866,3 +1863,9 @@ h2.page-title {
     color: #444;
     opacity: 1;
 }
+.particles-js-canvas-el {     position: absolute;
+    top: 0; }
+    
+    ul li a, #hero-cta { text-shadow: 0px 1px 1em rgb(12, 82, 26); }
+    #hero-cta a { box-shadow: 0px 5px 20px rgba(0,0,0,.2); background: #00000024; text-shadow: none; }
+    #hero-cta a:hover { color: #fff; background: #00000054; }
